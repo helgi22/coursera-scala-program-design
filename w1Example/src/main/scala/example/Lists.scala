@@ -24,14 +24,12 @@ object Lists {
     * @return The sum of all elements in `xs`
     */
   def sum(xs: List[Int]): Int = xs match {
-    case Nil => throw new NoSuchElementException("List is empty")
+    case Nil => 0
     case x :: Nil => x
     case x :: xs => {
       def sumAcc(acc: Int, ls: List[Int]): Int = ls match {
         case y :: Nil => acc + y
-        case y :: ys => {
-          sumAcc(acc + y, ys)
-        }
+        case y :: ys => sumAcc(acc + y, ys)
       }
 
       sumAcc(x, xs)

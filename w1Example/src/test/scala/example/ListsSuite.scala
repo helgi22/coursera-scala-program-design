@@ -115,13 +115,18 @@ class ListsSuite extends FunSuite {
     */
   test("sum of a few numbers") {
     assert(sum(List(1, 2, 0)) === 3)
+    assert(sum(List(-1, 2, 0)) === 1)
+    assert(sum(List(-1, -2, 3)) === 0)
+    assert(sum(List()) === 0)
   }
+
 
   test("max of a few numbers") {
     assert(max(List(3, 7, 2)) === 7)
     assert(max(List(-3, 0, 2)) === 2)
     assert(max(List(0, 0, 0)) === 0)
     assert(max(List(3)) === 3)
+    assert(max(List(3, 3, 0)) === 3)
   }
 
   test("max of a few numbers when List is empty") {
