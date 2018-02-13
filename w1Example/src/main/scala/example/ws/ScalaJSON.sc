@@ -13,13 +13,3 @@ type JBinding = (String, JSON)
 trait Map[Key, Value] extends (Key => Value)
 
 trait Seq[Elem] extends (Int => Elem)
-
-object test {
-  val f: Function0[JBinding, String] => String = {
-    case "ping" => "pong"
-  }
-
-  f("ping")
-
-  f("asd")
-}
