@@ -60,4 +60,4 @@ def findChar(c: Char, levelVector: Vector[Vector[Char]]): Pos = {
 
 
 lazy val terrain: Terrain = terrainFunction(vector)
-terrain
+findChar('o',vector)
