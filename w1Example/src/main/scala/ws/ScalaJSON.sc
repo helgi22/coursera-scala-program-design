@@ -7,9 +7,8 @@ case class JStr(str: String) extends JSON
 case class JBool(b: Boolean) extends JSON
 case object JNull extends JSON
 
-/*
 
-val data = JObj(Map(
+val data:JSON = JObj(Map(
   "firstName" -> JStr("John"),
   "lastName" -> JStr("Smith"),
   "address" -> JObj(Map(
@@ -26,13 +25,12 @@ val data = JObj(Map(
     ))
   ))
 ))
-*/
 
 /*Pattern Matching*/
 def show(json:JSON):String=json match {
   case JSeq(elems) => "[" + (elems map show mkString ",")+ "]"
   case JObj(bindings) =>
-    val assocs = bindings match {
+    val assocs = bindings map {
     case (key,value) => "\"" + key + "\":" + show(value)
   }
     "{"+ (assocs  mkString ",") + "}"
@@ -42,14 +40,4 @@ def show(json:JSON):String=json match {
   case JNull => "null"
 }
 
-type JBinding = (String, JSON)
-//JBinding => String The same as scala.Function1[JBinding,String]
-trait Function1[-A,+R]{
-  def apply(x : A): R
-}
-
-
-trait Map[Key, Value] extends (Key => Value)
-
-trait Seq[Elem] extends (Int => Elem)
-//That's why we can write elems(i)
+show(data)
