@@ -30,6 +30,7 @@ abstract class Simulation {
       curtime = first.time
       first.action()
       loop()
+//    case Nil => Nil
   }
 
   case class Event(time: Int, action: Action)
