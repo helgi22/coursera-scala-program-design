@@ -3,11 +3,11 @@ import ws.{Circuits, Parameters}
 object test {
   println("Welcome")
 
-  object sim extends Circuits with Parameters
+  val in1, in2, sum, carry = new Wire
 
   import sim._
 
-  val in1, in2, sum, carry = new Wire
+  object sim extends Circuits with Parameters
 
   halfAdder(in1, in2, sum, carry)
   probe("sum", sum)

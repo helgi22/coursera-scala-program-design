@@ -70,4 +70,5 @@ abstract class Gates extends Simulation {
       a()
     }
   }
+
 }
